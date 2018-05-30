@@ -1,0 +1,18 @@
+<div class="row show">
+  <div class="thumb">
+    <img src="{{selected.photosrc}}" alt="Image of {{selected.name}}" class="img-thumbnail" (click)="select(selected)">
+  </div>
+  <div>
+    <h6>{{selected.name}}</h6>
+    <p>{{selected.desc}}</p>
+  </div>
+  <!-- <form (submit)="addToCart()" class="form-control"> -->
+  <form (submit)="addToCart(addProd)" class="form-control">
+      <div *ngIf="errors">{{errors}}</div>
+    <p>{{selected.inventory}} in stock</p>
+    <input type="number" name="quantity" [(ngModel)]="addProd.quantity" value="1" required min="1" max="{{selected.inventory}}" #addProd="ngModel"/>
+    <br><br>
+    <input type="submit" value="Add to Cart" class="btn btn-sm btn-primary"/>
+  </form>
+</div>
+<!-- {{addProd.quantity}} -->

@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row links">
+    <div class="col-12 d-flex justify-content-end">    
+      <button (click)="cart()" class="btn btn-sm btn-primary">Your Shopping Cart</button>
+      <button (click)="logout()" class="btn btn-sm btn-primary">Logout</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="prods col-md-10 scrollie">
+      <div *ngFor="let prod of products" class="row">
+        <div class="wrapper">
+          <img src="{{prod.photosrc}}" alt="Image of {{prod.name}}" class="img-thumbnail" (click)="select(prod)">
+          <!-- <div class="prodname">{{prod.name}}</div> -->
+        </div> 
+      </div>
+    </div>
+    <div *ngIf="selectprod" class="col-md-2">
+      <app-singleprod [userId]="userId" [selected]="selected" (myCartEvent)="all()" (myCart2Event)="unselect()"></app-singleprod>
+    </div> 
+    <div *ngIf="!selectprod && bought" class="col-md-2">
+      <div class="alert alert-success small">Successfully added to cart!</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+.links button {
+    margin: 5px;
+}
+h6 {
+    font-family: 'Poiret One', cursive;
+    font-weight: bold;
+    color: #007bff;
+    margin: 10px 0px;
+}
+.cartItem {
+    margin: 10px auto;
+}
+.borders {
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+}
+.subtotal {
+    /* height: 125px; */
+}
+button {
+    margin: 10px 0px;
+}

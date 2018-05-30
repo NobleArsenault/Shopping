@@ -1,0 +1,36 @@
+.links button {
+    margin: 5px;
+}
+.prods {
+    display: flex;
+    flex-wrap: wrap;
+}
+.wrapper {
+    width: 230px;
+    height: 145px;
+    margin: 10px 10px;
+    display: block;
+}
+img {
+    opacity: 1;
+    width: 230px;
+    height: 145px;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+.wrapper:hover {
+    opacity: 0.3;
+}
+.prodname {
+    opacity: 1;
+    font-size: 12px;
+    margin: 5px auto; 
+    text-align: center;
+}
+.scrollie {
+    height: 400px;
+    overflow: auto;
+}
+::-webkit-scrollbar {
+    display: none;
+}

@@ -1,0 +1,16 @@
+<div class="row links">
+  <div class="col-12 d-flex justify-content-end">    
+    <button (click)="browse()" class="btn btn-sm btn-primary">Browse</button>
+    <button (click)="logout()" class="btn btn-sm btn-primary">Logout</button>
+  </div>
+</div>
+<h4>Purchase successful!</h4>
+<p>Your {{lastPurch.length}} items are on their way!</p>
+<!-- <a> Click here to see your purchase history </a> -->
+<!-- {{lastPurch}} -->
+<!-- <div *ngFor="let x of lastPurch">
+  <p>item {{x.item}}</p>
+  <p>name {{x.item.name}}</p>
+  
+</div> -->
+<button (click)="browse()" class="btn btn-sm btn-primary">Continue Shopping</button>

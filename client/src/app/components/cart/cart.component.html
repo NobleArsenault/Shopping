@@ -1,0 +1,35 @@
+<div class="row links">
+  <div class="col-12 d-flex justify-content-end">    
+    <button (click)="browse()" class="btn btn-sm btn-primary">Browse</button>
+    <button (click)="logout()" class="btn btn-sm btn-primary">Logout</button>
+  </div>
+</div>
+<div *ngIf="!cart">
+  <p>Your cart is empty!</p>
+</div>
+<div class="row" *ngIf="cart">
+  <div *ngFor="let prod of cart" class="col-md-9">
+    <div class="row cartItem">
+      <div class="thumb col-md-4"> 
+        <img src="{{prod.item.photosrc}}" alt="Image of {{prod.item.name}}" class="img-thumbnail" (click)="select(prod)">
+      </div>
+      <div class="col-md-6 borders"> 
+        <h6>{{prod.item.name}}</h6>
+        <p>{{prod.item.desc}} | ${{prod.item.price}}.00</p>
+        <p>Quantity: {{prod.quantity}} | Subtotal: ${{prod.item.price * prod.quantity}}.00</p>
+        <form (submit)="updateCart(prod)" class="form-inline"> 
+          <div *ngIf="errors">{{errors}}</div>
+          <input type="number" name="quantity" [(ngModel)]="cartProd.quantity" value="" required min="0" max="{{prod.item.quantity}}" #cartProd="ngModel"/>
+          <input type="submit" value="Change" class="btn btn-sm btn-primary"/>
+        </form>
+        <button (click)="drop(prod)" class="btn btn-sm btn-warning">Remove from cart</button>        
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 borders subtotal">
+    <h6>Number of Items: {{numItems}}</h6>
+    <h6>Total: ${{total}}.00</h6>
+    <button (click)="buy()" class="btn btn-sm btn-success">Buy</button>
+    <button (click)="empty()" class="btn btn-sm btn-danger">Empty My Cart</button>
+  </div>
+</div>

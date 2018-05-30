@@ -1,0 +1,34 @@
+<div>
+  <h3 class="row">Edit Products</h3>
+  <div class="scrollie">
+    <div *ngFor="let prod of AllProds">
+      <div class="row edits">
+        <div class="col-md-3 thumb">
+          <img src="{{prod.photosrc}}" alt="Image of {{prod.name}}" class="img-thumbnail" (click)="select(prod)">
+        </div>
+        <form (submit)="edit(prod)" class="form-control form-inline col-md-8">
+          <div *ngIf="errors">{{errors}}</div>
+          <div class="col-md-4">    
+            <p>Name: </p> 
+            <input type="text" name="name" [(ngModel)]="prod.name" required minlength="3" maxlength="255" #prodname="ngModel" value="prod.name">
+            <p>Photo Source: </p>
+            <input type="text" name="photosrc" [(ngModel)]="prod.photosrc" required minlength="3" maxlength="255" #prodsrc="ngModel" value="prod.photosrc">
+          </div>
+          <div class="col-md-3">
+            <p># In Inventory: </p>
+            <input type="number" name="inventory" [(ngModel)]="prod.inventory" value="0" required min="0" max="300" #prodquant="ngModel" value="prod.inventory">
+            <p>Price: </p>
+            <input type="number" name="price" [(ngModel)]="prod.price" value="0.00" max="1000000" required min="0" #prodprice="ngModel" value="prod.price">  
+          </div>
+          <div class="col-md-5">
+            <p>Description: </p>
+            <textarea name="desc" [(ngModel)]="prod.desc" required minlength="3" maxlength="255" #proddesc="ngModel" value="prod.desc"></textarea>  
+            <br>
+              <input type="submit" value="Edit product" class="btn btn-sm btn-primary"/>
+          </div>
+        </form>
+        <button (click)="delete(prod)" class="btn btn-sm btn-danger">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
